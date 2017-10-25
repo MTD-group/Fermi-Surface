@@ -13,7 +13,7 @@ Output:
     This script extract spatial eigen values from EIGENVAL files for drawing
 fermi-surface. Mind that the calculation should be done with pecular k-point mesh,
 which is without ISYM-tag. Output file is the body for bxcf file, which is used for Xcrysden file.
-Spin down elements are listed after up elements.
+Spin down elements are listed after up elements.0
     
 In case of less than three argument is given, priority coms to input file.
 For example,
@@ -167,7 +167,7 @@ for i,line in enumerate(lines[7::]): #starts from 8th line
     elif len(re.findall("[-a-zA-Z0-9.\+]+",line)) > 0:
         temp=re.findall('[-a-zA-Z0-9.\+]+',line)
         band_num=int(temp[0])        
-        ei_val_string=temp[1::]
+        ei_val_string=temp[1:1+ispin:]
         ei_val=[float(k) for k in ei_val_string] #Eigenvlue of current Kpoint
         eigenvalues[kp_counter-1,band_num-1,:]=ei_val
                 

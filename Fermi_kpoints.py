@@ -19,9 +19,9 @@ print ("### Author: Yongjin Shin\n")
 
 #Case of different arguments are given.
 if len(sys.argv) == 1:
-    kx=9
-    ky=9
-    kz=9
+    kx=6
+    ky=12
+    kz=4
     print("No input argument is given. KX,KY,KZ=9")
 elif len(sys.argv) == 2:
     kx=int(sys.argv[1])
@@ -40,15 +40,18 @@ elif len(sys.argv) == 4:
     print("Three input argument is given. KX={0}, KY={1}, KZ={2} ".format(kx,ky,kz))
 
 
-data_array=np.ones(shape=(kx*ky*kz,4));
-for i in range(kx):
-    for j in range(ky):
-        for k in range(kz):
-            data_array[i*ky*kz+j*kz+k,:-1]=[i/kx, j/ky, k/kz]
+
+# Reciprocal points are described as (kx+1) style as Xcrysden does not accept periodic
+# boundary conditions
+data_array=np.ones(shape=((kx+1)*(ky+1)*(kz+1),4));
+for i in range(kx+1):
+    for j in range(ky+1):
+        for k in range(kz+1):
+            data_array[i*(ky+1)*(kz+1)+j*(kz+1)+k,:-1]=[i/kx, j/ky, k/kz]
 
 out_file=open('KPOINTS','w')
 out_file.write("k-points for fermi-surface. RP-phase {0}x{1}x{2}\n".format(kx,ky,kz))
-out_file.write("{0}\n".format(kx*ky*kz))
+out_file.write("{0}\n".format((kx+1)*(ky+1)*(kz+1)))
 out_file.write("Reciprocal\n")
 for i in range(np.shape(data_array)[0]):
     out_file.write("{0:.4f} {1:.4f} {2:.4f} {3:.0f}\n".format(data_array[i,0],data_array[i,1],data_array[i,2],data_array[i,3]))
