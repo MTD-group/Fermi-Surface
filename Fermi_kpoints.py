@@ -19,9 +19,9 @@ print ("### Author: Yongjin Shin\n")
 
 #Case of different arguments are given.
 if len(sys.argv) == 1:
-    kx=6
-    ky=12
-    kz=4
+    kx=9
+    ky=9
+    kz=9
     print("No input argument is given. KX,KY,KZ=9")
 elif len(sys.argv) == 2:
     kx=int(sys.argv[1])
