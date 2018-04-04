@@ -1,3 +1,4 @@
+from __future__ import division
 # -*- coding: utf-8 -*-
 """
 Created on Thu Oct 13 00:26:05 2016
