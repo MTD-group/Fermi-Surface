@@ -50,7 +50,7 @@ for i in range(kx+1):
             data_array[i*(ky+1)*(kz+1)+j*(kz+1)+k,:-1]=[i/kx, j/ky, k/kz]
 
 out_file=open('KPOINTS','w')
-out_file.write("k-points for fermi-surface. RP-phase {0}x{1}x{2}\n".format(kx,ky,kz))
+out_file.write("k-points for fermi-surface. K-mesh of {0}x{1}x{2}\n".format(kx,ky,kz))
 out_file.write("{0}\n".format((kx+1)*(ky+1)*(kz+1)))
 out_file.write("Reciprocal\n")
 for i in range(np.shape(data_array)[0]):
