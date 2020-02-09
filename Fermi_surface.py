@@ -212,8 +212,8 @@ for j in range(eigenvalues.shape[1]): # Axis1: For each band
         # there are 'nky' number of lines within one block
         for k in range(nky):
             # there are 'nkz' number of columns within one line
-            # block_counter*nkx+k row will be line to be printed
-            out_file.write('       '+'  '.join(map(str,one_band[block_counter*nkx+k,:]))+'\n')
+            # block_counter*nky+k row will be line to be printed
+            out_file.write('       '+'  '.join(map(str,one_band[block_counter*nky+k,:]))+'\n')
         # each blocks are separated by empty line
         out_file.write('\n')
         block_counter+=1
@@ -231,8 +231,8 @@ if np.shape(eigenvalues)[2]==2: # Axis2: When more than one spin element exists
             # there are 'nky' number of lines within one block
             for k in range(nky):
                 # there are 'nkz' number of columns within one line
-                # block_counter*nkx+k row will be line to be printed
-                out_file.write('       '+'  '.join(map(str,one_band[block_counter*nkx+k,:]))+'\n')
+                # block_counter*nky+k row will be line to be printed
+                out_file.write('       '+'  '.join(map(str,one_band[block_counter*nky+k,:]))+'\n')
             # each blocks are separated by empty line
             out_file.write('\n')
             block_counter+=1
