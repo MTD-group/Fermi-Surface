@@ -47,7 +47,7 @@ data_array=np.ones(shape=((kx+1)*(ky+1)*(kz+1),4));
 for i in range(kx+1):
     for j in range(ky+1):
         for k in range(kz+1):
-            data_array[i*(ky+1)*(kz+1)+j*(kz+1)+k,:-1]=[i/kx, j/ky, k/kz]
+            data_array[i*(ky+1)*(kz+1)+j*(kz+1)+k,:-1]=[i*1.0/kx, j*1.0/ky, k*1.0/kz]
 
 out_file=open('KPOINTS','w')
 out_file.write("k-points for fermi-surface. K-mesh of {0}x{1}x{2}\n".format(kx,ky,kz))
